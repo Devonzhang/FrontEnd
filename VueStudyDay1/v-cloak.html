@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- 可以在插值表达式周围写入任何内容 -->
+        <p v-cloak>{{ msg }}</p>
+        <h4 v-text="msg"></h4>
+        <!-- v-text无插值表达式闪烁问题 且会覆盖原本元素中内容 -->
+        <div>{{msg2}}</div>
+        <div v-text="msg2"></div>
+        <div v-html="msg2"></div>
+        <!-- Vue中提供事件响应 -->
+        <input type="button" value="按钮" v-bind:title="mytitle + '123'" v-on:click="show">
+        <!-- v-bind会将""中内容解析为js代码 可简写为:title-->
+        <!-- 由于解析为js代码 因此可以在“”中写简单的表达式 -->
+        <!-- v-on缩写是@ -->
+        <input type="button" value="按钮" :title="mytitle + '123'" @click="show">
+
+    </div>
+
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '123',
+                msg2: '<h1>哈哈哈 h1</h1>',
+                mytitle: '这是自己定义的title'
+            },
+            methods: { //定义当前Vue中所有可用方法
+                show: function() {
+                    alert('hello')
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

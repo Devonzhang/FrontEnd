@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- MVVM Model-View-ViewModel 数据 视图 处理方法 -->
+    <!-- 1 include Vue -->
+
+    <script src="lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+    </div>
+    <script>
+        //2. A Vue Example
+        var vm = new Vue({
+            el: '#app', //控制app元素div id=app
+            data: {
+                //存放el中用到的数据
+                msg: '学习Vue'
+            }
+
+        })
+    </script>
+</body>
+
+</html>
