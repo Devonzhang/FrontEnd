@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 需求 把所有单纯替换为邪恶 -->
+        <p>{{msg | msgFormat}}</p>
+    </div>
+
+
+    <script>
+        //定义一个Vue全局过滤器，名字叫做 msgFormat
+        Vue.filter('msgFormat', function(msg) {
+            //字符串的replace方法，除了可以写字符串，还可以定义一个正则
+            return msg.replace(/单纯/g, '邪恶')
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '曾经我也是一个单纯的少年，单纯的我，傻傻的问，谁是世界上最单纯的人'
+            },
+            methods: {
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>
